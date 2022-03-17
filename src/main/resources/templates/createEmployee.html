@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/employee}" method="post" th:object="${enrollReq}">
+        <div>
+            <label>이름</label>
+            <input th:field= "*{name}" placeholder="이름을 입력하세요">
+        </div>
+
+        <div>
+            <label>이메일</label>
+            <input th:field= "*{email}" placeholder="이메일을 입력하세요">
+        </div>
+
+        <div>
+            <label>나이</label>
+            <input th:field= "*{age}" placeholder="나이를 입력하세요">
+        </div>
+
+        <div>
+            <label>zipcode</label>
+            <input th:field= "*{zipcode}" placeholder="zipcode 입력하세요">
+        </div>
+
+        <div>
+            <label>street</label>
+            <input th:field= "*{street}" placeholder="street ">
+        </div>
+
+        <div>
+            <label>gender</label>
+            <select th:name="*{gender}">
+                <option th:each="gender : ${gender}" th:text="${gender.getValue()}"></option>
+            </select>
+        </div>
+        <input type="submit" value="직원 등록">
+    </form>
+</div>
+
+</body>
+</html>
